@@ -7,8 +7,33 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.TopAppBar>
+        <AppBar Background="Green" BorderBrush="Yellow">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="City 1 - to make prettier" Background="OrangeRed"></Button>
+                <Button Content="City 2 - to make prettier" Background="OrangeRed"></Button>
+                <Button Content="City 3 - to make prettier" Background="OrangeRed"></Button>
+
+            </StackPanel>
+        </AppBar>
+    </Page.TopAppBar>
+
+    <Page.BottomAppBar>
+        <CommandBar Background ="Green" BorderBrush="Yellow">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Label="Refresh" Icon="Sync"></AppBarButton>
+            </CommandBar.PrimaryCommands>
+            
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="More" Icon="More"></AppBarButton>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+
+    </Page.BottomAppBar>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="422,90,0,0" VerticalAlignment="Top" Click="button_Click"/>
+        <Button x:Name="button" Content="Get Data" HorizontalAlignment="Left" Margin="422,90,0,0" VerticalAlignment="Top" Click="button_Click"/>
+        <TextBlock x:Name="textBlock123" HorizontalAlignment="Left" Margin="422,219,0,0" TextWrapping="Wrap" Text="This is the textbox" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

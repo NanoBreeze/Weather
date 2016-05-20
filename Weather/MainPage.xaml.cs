@@ -9,6 +9,9 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.Notifications;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -27,67 +30,43 @@ namespace Weather
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+
         public MainPage()
         {
             this.InitializeComponent();
+            textBlock123.Text = "City: ";
+
         }
 
-        static async Task RunAsync()
+        async Task<string> RunAsync()
         {
+            string cityName = null;
+            string temperature = null;
+
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response;
                 response = await
                     client.GetAsync(
-                        "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=23dde959b0c9a19b586ed9af3bbc8868").ConfigureAwait(continueOnCapturedContext:false);
+                        "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=23dde959b0c9a19b586ed9af3bbc8868").ConfigureAwait(continueOnCapturedContext: false);
 
                 if (response.IsSuccessStatusCode)
-                    {
-                        string content = await response.Content.ReadAsStringAsync();
-                        Debug.WriteLine(content);
-                    }
-                
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    dynamic content1 = JsonConvert.DeserializeObject(content);
+                    temperature = content1.main.temp;
+                    cityName = content1.name;
+                }
             }
-
-
-            //using (var client = new HttpClient())
-            //{
-            //    // TODO - Send HTTP requests
-            //    // New code:
-            //    client.BaseAddress = new Uri("http://api.openweathermap.org/data/2.5/");
-            //    client.DefaultRequestHeaders.Accept.Clear();
-            //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            //    try
-            //    {
-            //        Debug.WriteLine("About to get string");
-            //        var response =
-            //            await client.GetStringAsync("weather?q=London,uk&appid=23dde959b0c9a19b586ed9af3bbc8868");
-
-            //        Debug.WriteLine(response);
-            //        //HttpResponseMessage response =
-            //        //    await client.GetAsync("weather?q=London,uk&appid=23dde959b0c9a19b586ed9af3bbc8868");
-            //        //response.EnsureSuccessStatusCode(); // Throw if not a success code.
-            //        //if (response.IsSuccessStatusCode)
-            //        //{
-            //        //    string product = await response.Content.ReadAsStringAsync();
-            //        //    dynamic a = JsonConvert.DeserializeObject(product);
-            //        //    var m = a.main.temp;
-
-            //        //}
-            //        // ...
-            //    }
-            //    catch (HttpRequestException e)
-            //    {
-            //        // Handle exception.
-            //    }
-
-            //}
+            return cityName;
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private async void button_Click(object sender, RoutedEventArgs e)
         {
-            RunAsync().Wait();
+            var cityName = await RunAsync();
+            textBlock123.Text = cityName;
+            //string temperature = 
         }
     }
 }
