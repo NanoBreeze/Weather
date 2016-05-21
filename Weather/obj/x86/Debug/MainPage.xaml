@@ -34,6 +34,11 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Button x:ConnectionId='1' x:Name="button" Content="Get Data" HorizontalAlignment="Left" Margin="422,90,0,0" VerticalAlignment="Top"                     />
         <TextBlock x:ConnectionId='2' x:Name="textBlock123" HorizontalAlignment="Left" Margin="422,219,0,0" TextWrapping="Wrap" Text="This is the textbox" VerticalAlignment="Top"/>
+        <ComboBox x:ConnectionId='3' x:Name="comboBox" HorizontalAlignment="Left" Margin="817,239,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem>London</ComboBoxItem>
+            <ComboBoxItem>Hamilton</ComboBoxItem>
+            <ComboBoxItem>Waterloo</ComboBoxItem>
+        </ComboBox>
 
     </Grid>
 </Page>

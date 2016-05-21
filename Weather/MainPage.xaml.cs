@@ -30,7 +30,14 @@ namespace Weather
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        Dictionary<string, int> map = new Dictionary<string, int>()
+            {
+                {"London",6058560},
+                {"Hamilton", 5969785},
+                {"Waterloo", 6176821},
+            };
 
+        private int cityId = 0;
 
         public MainPage()
         {
@@ -39,7 +46,13 @@ namespace Weather
 
         }
 
-        async Task<string> RunAsync()
+
+        /// <summary>
+        /// Gets information from online API 
+        /// </summary>
+        /// <param name="cityId"></param>
+        /// <returns></returns>
+        async Task<string> RunAsync(int cityId)
         {
             string cityName = null;
             string temperature = null;
@@ -47,9 +60,10 @@ namespace Weather
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response;
+                
                 response = await
                     client.GetAsync(
-                        "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=23dde959b0c9a19b586ed9af3bbc8868").ConfigureAwait(continueOnCapturedContext: false);
+                        "http://api.openweathermap.org/data/2.5/weather?id="+cityId.ToString()+"&appid=23dde959b0c9a19b586ed9af3bbc8868").ConfigureAwait(continueOnCapturedContext: false);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -59,14 +73,24 @@ namespace Weather
                     cityName = content1.name;
                 }
             }
-            return cityName;
+            return temperature;
         }
 
         private async void button_Click(object sender, RoutedEventArgs e)
         {
-            var cityName = await RunAsync();
-            textBlock123.Text = cityName;
+            ComboBoxItem typeItem = (ComboBoxItem)comboBox.SelectedItem;
+            string value = typeItem.Content.ToString();
+            cityId = CityID(value);
+            var temperature= await RunAsync(cityId);
+            textBlock123.Text = temperature;
             //string temperature = 
+        }
+
+        private int CityID(string cityName)
+        {
+        
+            int output = map[cityName];
+            return output;
         }
     }
 }

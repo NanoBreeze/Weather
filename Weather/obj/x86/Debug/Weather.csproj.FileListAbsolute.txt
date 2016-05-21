@@ -199,11 +199,3 @@ C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\obj\x86\Deb
 C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\obj\x86\Debug\Weather.csprojResolveAssemblyReference.cache
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\layout.resfiles
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\layout.resfiles.intermediate
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\Resources.resfiles
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\Resources.resfiles.intermediate
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\pri.resfiles
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\pri.resfiles.intermediate
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\priconfig.xml
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\priconfig.xml.intermediate
