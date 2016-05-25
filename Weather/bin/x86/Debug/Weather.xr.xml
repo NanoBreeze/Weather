@@ -77,5 +77,10 @@
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Weather.MainPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Maps.MapControl">
+      <RootProperty Name="MapServiceToken" />
+      <RootEvent Name="TargetCameraChanged" />
+    </RootType>
+    <RootType FullName="Weather.Map.Map" />
   </Roots.RootTypes>
 </Roots>
