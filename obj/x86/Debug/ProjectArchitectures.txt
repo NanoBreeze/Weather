@@ -1,0 +1,1 @@
+C:\Users\Pechow\Documents\GitHub\Weather\Weather\Weather.csproj;x86
