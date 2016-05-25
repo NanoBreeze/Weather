@@ -23,7 +23,7 @@
             <CommandBar.PrimaryCommands>
                 <AppBarButton Label="Refresh" Icon="Sync"></AppBarButton>
             </CommandBar.PrimaryCommands>
-            
+
             <CommandBar.SecondaryCommands>
                 <AppBarButton Label="More" Icon="More"></AppBarButton>
             </CommandBar.SecondaryCommands>
@@ -32,13 +32,33 @@
     </Page.BottomAppBar>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="button" Content="Get Data" HorizontalAlignment="Left" Margin="422,90,0,0" VerticalAlignment="Top" Click="button_Click"/>
-        <TextBlock x:Name="textBlock123" HorizontalAlignment="Left" Margin="422,219,0,0" TextWrapping="Wrap" Text="This is the textbox" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="817,239,0,0" VerticalAlignment="Top" Width="120">
+        <Grid.RowDefinitions >
+            <RowDefinition Height ="*" />
+            <RowDefinition Height ="*" />
+            <RowDefinition Height ="*" />
+            <RowDefinition Height ="*" />
+            <RowDefinition Height ="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+
+        <Button x:Name="button" Grid.Row="1" Grid.Column="1" Content="Get Data" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Click="button_Click"/>
+        <TextBlock x:Name="textBlock123" Grid.Row="2" FontSize="20"  Grid.Column="1" Grid.RowSpan="2" Text="This is the textbox" VerticalAlignment="Center"/>
+        <ComboBox x:Name="comboBox"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="92,0,92,0" Width="164">
             <ComboBoxItem>London</ComboBoxItem>
             <ComboBoxItem>Hamilton</ComboBoxItem>
             <ComboBoxItem>Waterloo</ComboBoxItem>
         </ComboBox>
+        <Image x:Name="weatherIcon" Grid.Column="2" Grid.Row="2" Source="Assets/Logo.png" Stretch="Uniform"/>
+        <TextBlock x:Name="cityNameTB"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"  HorizontalAlignment="Center" Text="TextBlock" VerticalAlignment="Center" FontSize="60"/>
 
     </Grid>
+
+
 </Page>

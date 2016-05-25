@@ -52,28 +52,35 @@ namespace Weather
         /// </summary>
         /// <param name="cityId"></param>
         /// <returns></returns>
-        async Task<string> RunAsync(int cityId)
+        async Task<string[]> RunAsync(int cityId)
         {
-            string cityName = null;
-            string temperature = null;
+            //0.cityName; 1.temp_min; 2.temp_max; 3.windSpeed; 4.windDegree; 5. weatherConditionMain; 6.iconId;
+            string[] weatherInfo = new string[8];
 
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response;
-                
+
                 response = await
                     client.GetAsync(
-                        "http://api.openweathermap.org/data/2.5/weather?id="+cityId.ToString()+"&appid=23dde959b0c9a19b586ed9af3bbc8868").ConfigureAwait(continueOnCapturedContext: false);
+                        "http://api.openweathermap.org/data/2.5/weather?id=" + cityId.ToString() + "&appid=23dde959b0c9a19b586ed9af3bbc8868").ConfigureAwait(continueOnCapturedContext: false);
 
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     dynamic content1 = JsonConvert.DeserializeObject(content);
-                    temperature = content1.main.temp;
-                    cityName = content1.name;
+
+                    weatherInfo[0] = content1.name;//city name
+                    weatherInfo[1] = content1.main.temp_min;
+                    weatherInfo[2] = content1.main.temp_max;
+                    weatherInfo[3] = content1.wind.speed;
+                    weatherInfo[4] = content1.wind.deg;
+                    weatherInfo[5] = content1.weather[0].main;//weather condition
+                    weatherInfo[6] = content1.weather[0].icon;//weather icon
+                    weatherInfo[7] = content1.main.humidity;
                 }
             }
-            return temperature;
+            return weatherInfo;
         }
 
         private async void button_Click(object sender, RoutedEventArgs e)
@@ -81,14 +88,23 @@ namespace Weather
             ComboBoxItem typeItem = (ComboBoxItem)comboBox.SelectedItem;
             string value = typeItem.Content.ToString();
             cityId = CityID(value);
-            var temperature= await RunAsync(cityId);
-            textBlock123.Text = temperature;
+            string[] weatherInfo = await RunAsync(cityId);
+            cityNameTB.Text = weatherInfo[0];
+            //
+            textBlock123.Text = "Minimum Temperature: " + weatherInfo[1] + "\n"
+                + "Max Temperature: " + weatherInfo[2] + "\n"
+                + "Wind speed: " + weatherInfo[3] + "\n"
+                + "Wind degree: " + weatherInfo[4] + "\n"
+                + "Weather condition: " + weatherInfo[5] + "\n"
+                + "Weather icon: " + weatherInfo[6] + "\n"
+                + "Weather humidity" + weatherInfo[7] + "\n"
+                ;
             //string temperature = 
         }
 
         private int CityID(string cityName)
         {
-        
+
             int output = map[cityName];
             return output;
         }
