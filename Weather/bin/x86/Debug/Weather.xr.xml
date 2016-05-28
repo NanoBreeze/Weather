@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
+  <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="Temperature" />
+    <RootPropertyPathName Name="ForecastImage" />
+  </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
       <RootProperty Name="RequestedTheme" />
@@ -61,6 +65,7 @@
       <RootProperty Name="Text" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="VerticalAlignment" />
@@ -81,6 +86,20 @@
       <RootProperty Name="MapServiceToken" />
       <RootEvent Name="TargetCameraChanged" />
     </RootType>
+    <RootType FullName="Weather.WeatherPeekIcon">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Temperature" />
+      <RootProperty Name="ForecastImage" />
+      <RootProperty Name="Height" />
+    </RootType>
     <RootType FullName="Weather.Map.Map" />
+    <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="ElementName" />
+    </RootType>
   </Roots.RootTypes>
 </Roots>

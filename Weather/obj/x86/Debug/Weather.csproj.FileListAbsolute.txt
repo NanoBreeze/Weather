@@ -604,11 +604,8 @@ C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj
 C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\ProjectArchitectures.txt
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\layout.resfiles
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\layout.resfiles.intermediate
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\Resources.resfiles
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\Resources.resfiles.intermediate
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\pri.resfiles
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\pri.resfiles.intermediate
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\priconfig.xml
-C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\System.Net.Http.Formatting\priconfig.xml.intermediate
+C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\bin\x86\Debug\CustomControls\WeatherPeekIcon.xbf
+C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\CustomControls\WeatherPeekIcon.g.i.cs
+C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\CustomControls\WeatherPeekIcon.g.cs
+C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\CustomControls\WeatherPeekIcon.xaml
+C:\Users\Lenny\Documents\Visual Studio 2015\Projects\Weather\Weather\Weather\obj\x86\Debug\CustomControls\WeatherPeekIcon.xbf

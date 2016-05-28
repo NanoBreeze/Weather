@@ -132,17 +132,23 @@ namespace Weather.Weather_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[4];
+            _typeNameTable = new string[7];
             _typeNameTable[0] = "Weather.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "Weather.Map.Map";
+            _typeNameTable[3] = "Weather.WeatherPeekIcon";
+            _typeNameTable[4] = "String";
+            _typeNameTable[5] = "Windows.UI.Xaml.Media.ImageSource";
+            _typeNameTable[6] = "Weather.Map.Map";
 
-            _typeTable = new global::System.Type[4];
+            _typeTable = new global::System.Type[7];
             _typeTable[0] = typeof(global::Weather.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::Weather.Map.Map);
+            _typeTable[3] = typeof(global::Weather.WeatherPeekIcon);
+            _typeTable[4] = typeof(global::System.String);
+            _typeTable[5] = typeof(global::Windows.UI.Xaml.Media.ImageSource);
+            _typeTable[6] = typeof(global::Weather.Map.Map);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -178,7 +184,8 @@ namespace Weather.Weather_XamlTypeInfo
         }
 
         private object Activate_0_MainPage() { return new global::Weather.MainPage(); }
-        private object Activate_3_Map() { return new global::Weather.Map.Map(); }
+        private object Activate_3_WeatherPeekIcon() { return new global::Weather.WeatherPeekIcon(); }
+        private object Activate_6_Map() { return new global::Weather.Map.Map(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -205,9 +212,26 @@ namespace Weather.Weather_XamlTypeInfo
                 xamlType = new global::Weather.Weather_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  Weather.Map.Map
+            case 3:   //  Weather.WeatherPeekIcon
+                userType = new global::Weather.Weather_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+                userType.Activator = Activate_3_WeatherPeekIcon;
+                userType.AddMemberName("Temperature");
+                userType.AddMemberName("ForecastImage");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  String
+                xamlType = new global::Weather.Weather_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 5:   //  Windows.UI.Xaml.Media.ImageSource
+                xamlType = new global::Weather.Weather_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 6:   //  Weather.Map.Map
                 userType = new global::Weather.Weather_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_Map;
+                userType.Activator = Activate_6_Map;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -216,11 +240,48 @@ namespace Weather.Weather_XamlTypeInfo
         }
 
 
+        private object get_0_WeatherPeekIcon_Temperature(object instance)
+        {
+            var that = (global::Weather.WeatherPeekIcon)instance;
+            return that.Temperature;
+        }
+        private void set_0_WeatherPeekIcon_Temperature(object instance, object Value)
+        {
+            var that = (global::Weather.WeatherPeekIcon)instance;
+            that.Temperature = (global::System.String)Value;
+        }
+        private object get_1_WeatherPeekIcon_ForecastImage(object instance)
+        {
+            var that = (global::Weather.WeatherPeekIcon)instance;
+            return that.ForecastImage;
+        }
+        private void set_1_WeatherPeekIcon_ForecastImage(object instance, object Value)
+        {
+            var that = (global::Weather.WeatherPeekIcon)instance;
+            that.ForecastImage = (global::Windows.UI.Xaml.Media.ImageSource)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::Weather.Weather_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::Weather.Weather_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "Weather.WeatherPeekIcon.Temperature":
+                userType = (global::Weather.Weather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Weather.WeatherPeekIcon");
+                xamlMember = new global::Weather.Weather_XamlTypeInfo.XamlMember(this, "Temperature", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_0_WeatherPeekIcon_Temperature;
+                xamlMember.Setter = set_0_WeatherPeekIcon_Temperature;
+                break;
+            case "Weather.WeatherPeekIcon.ForecastImage":
+                userType = (global::Weather.Weather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Weather.WeatherPeekIcon");
+                xamlMember = new global::Weather.Weather_XamlTypeInfo.XamlMember(this, "ForecastImage", "Windows.UI.Xaml.Media.ImageSource");
+                xamlMember.Getter = get_1_WeatherPeekIcon_ForecastImage;
+                xamlMember.Setter = set_1_WeatherPeekIcon_ForecastImage;
+                break;
+            }
             return xamlMember;
         }
     }
